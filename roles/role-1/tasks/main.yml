@@ -1,0 +1,18 @@
+---
+# tasks file for role
+# - include_vars: vault.yml
+
+# - name: Genera el fichero Kubeconfig
+#   template:
+#     src: templates/kubeconfig.j2
+#     dest: kubeconfig
+
+- name: Get a list of all pods from any namespace
+  community.kubernetes.k8s_info:
+    kind: Pod
+    #namespace: bscloud-monitoring-int
+  register: pod_list
+
+- name: Print pod names
+  debug:
+    msg: "pod_list: {{ pod_list | json_query('resources[*].metadata.name')  }} "
