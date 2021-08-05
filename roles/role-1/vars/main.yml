@@ -1,0 +1,3 @@
+---
+# vars file for role
+kubeconfig_path: templates/kubeconfig

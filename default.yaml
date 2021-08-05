@@ -1,0 +1,22 @@
+---
+- name: RETRIEVE WORKER NODE DETAILS FROM KUBERNETES NODE
+  hosts: all    
+  gather_facts: no
+  #collections: 
+  #  - kubernetes.core
+  environment:
+    K8S_AUTH_KUBECONFIG: "{{ kubeconfig_path }}"
+  # tasks:
+    # - name: Check that K8S_AUTH_KUBECONFIG is set
+      # ansible.builtin.debug:
+        # msg:
+        # - "Provisioning based on K8S_AUTH_KUBECONFIG which is: {{ lookup('env', 'K8S_AUTH_KUBECONFIG') }}"
+    # - name: GET WORKER NODE DETAILS
+      # become: false
+      # community.kubernetes.k8s_info:
+        # kind: Node
+        # namespace: default
+      # register: node_result
+
+  roles:
+    - role-1
