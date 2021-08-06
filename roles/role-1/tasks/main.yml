@@ -1,11 +1,11 @@
 ---
 # tasks file for role
-# - include_vars: vault.yml
+- include_vars: vault.yml
 
-# - name: Genera el fichero Kubeconfig
-#   template:
-#     src: templates/kubeconfig.j2
-#     dest: kubeconfig
+- name: Genera el fichero Kubeconfig
+  template:
+    src: templates/kubeconfig.j2
+    dest: roles/role-1/files/kubeconfig_decrypted
 
 - name: Get a list of all pods from any namespace
   community.kubernetes.k8s_info:
